@@ -19,12 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Parallax effect for hero
+    // Subtle parallax effect for hero
     const hero = document.querySelector('.hero-immersive');
     if (hero) {
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
-            const rate = scrolled * 0.5;
+            const rate = scrolled * 0.3; // More subtle
             hero.style.transform = `translate3d(0, ${rate}px, 0)`;
         });
     }
@@ -170,25 +170,15 @@ Submitted: ${new Date().toLocaleString('en-US', {
         lastScroll = currentScroll;
     });
     
-    // Lazy load images
+    // Image loading (no fade animation)
     const images = document.querySelectorAll('img[src]');
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.style.opacity = '0';
-                img.style.transition = 'opacity 0.6s ease';
-                
-                img.addEventListener('load', () => {
-                    img.style.opacity = '1';
-                });
-                
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-    
     images.forEach(img => {
-        imageObserver.observe(img);
+        if (!img.complete) {
+            img.style.opacity = '0';
+            img.addEventListener('load', () => {
+                img.style.opacity = '1';
+                img.style.transition = 'opacity 0.3s ease';
+            });
+        }
     });
 });
