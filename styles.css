@@ -912,3 +912,147 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr;
     }
 }
+/* Logo Styles */
+.logo-image {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+/* Exclusively Represented By Section */
+.represented-by {
+    background: var(--white);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--sand);
+}
+
+.represented-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.represented-text {
+    font-size: 0.9rem;
+    color: var(--brown);
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.represented-logo {
+    height: 40px;
+    width: auto;
+}
+
+/* Video Placeholder for Casa Nube */
+.main-video {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--sand-light);
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--sand-light) 0%, var(--sand) 100%);
+    border: 2px dashed var(--terracotta);
+}
+
+.video-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-sm);
+    opacity: 0.5;
+}
+
+.video-placeholder p {
+    font-size: 1.2rem;
+    color: var(--brown);
+    font-weight: 500;
+}
+
+/* When video is added, use these styles */
+.main-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Footer Logo Styles */
+.footer-logo-image {
+    height: 60px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
+.footer-represented {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: var(--spacing-sm) 0;
+}
+
+.footer-represented-text {
+    font-size: 0.85rem;
+    color: var(--sand);
+    letter-spacing: 0.5px;
+}
+
+.footer-represented-logo {
+    height: 35px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .logo-image {
+        height: 40px;
+    }
+    
+    .represented-logo {
+        height: 30px;
+    }
+    
+    .main-video {
+        height: 300px;
+    }
+    
+    .footer-logo-image {
+        height: 50px;
+    }
+    
+    .footer-represented-logo {
+        height: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-image {
+        height: 35px;
+    }
+    
+    .represented-content {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    
+    .main-video {
+        height: 250px;
+    }
+}
+    
+    .image-gallery {
+        grid-template-columns: 1fr;
+    }
+}
