@@ -1190,19 +1190,39 @@ h1, h2, h3, h4 {
 
     .hero {
         margin-top: 70px;
-        height: 70vh;
+        height: 80vh;
+        min-height: 600px;
+    }
+
+    .hero-content {
+        padding: 2rem 1rem;
     }
 
     .hero-logo {
         height: 60px;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+        margin-bottom: 2rem;
     }
 
     .hero-stats {
         gap: var(--space-sm);
+        margin-bottom: 2.5rem;
     }
 
     .stat-value {
         font-size: 2rem;
+    }
+
+    .hero-cta {
+        margin-top: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .carousel-dots {
+        bottom: 20px;
     }
 
     .carousel-arrow {
@@ -1225,12 +1245,55 @@ h1, h2, h3, h4 {
     .form-row {
         grid-template-columns: 1fr;
     }
+
+    .agent-contact {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .contact-btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 480px) {
+    .hero {
+        height: 75vh;
+        min-height: 550px;
+    }
+
+    .hero-content {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .hero-logo {
+        height: 50px;
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
     .hero-stats {
         flex-direction: column;
         gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .stat-value {
+        font-size: 1.75rem;
+    }
+
+    .hero-cta {
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .carousel-dots {
+        bottom: 15px;
     }
 
     .btn-hero,
@@ -1238,5 +1301,18 @@ h1, h2, h3, h4 {
     .btn-location {
         width: 100%;
         text-align: center;
+    }
+
+    .contact-btn {
+        width: 100%;
+        padding: 1rem 1.5rem;
+    }
+
+    .contact-btn span:first-child {
+        font-size: 0.875rem;
+    }
+
+    .contact-btn span:last-child {
+        font-size: 0.8rem;
     }
 }
