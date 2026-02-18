@@ -67,6 +67,40 @@ document.addEventListener('DOMContentLoaded', function() {
     startAutoplay();
 
     // ============================================
+    // RESIDENCE GALLERY CAROUSELS
+    // ============================================
+    
+    const residences = ['nube', 'patios', 'portales'];
+    
+    residences.forEach(residence => {
+        const card = document.querySelector(`[data-residence="${residence}"]`)?.closest('.residence-card');
+        if (!card) return;
+        
+        const slides = card.querySelectorAll('.residence-slide');
+        const prevBtn = card.querySelector('.residence-arrow.prev');
+        const nextBtn = card.querySelector('.residence-arrow.next');
+        let currentSlide = 0;
+        
+        function showResidenceSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showResidenceSlide(currentSlide - 1);
+            });
+            
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showResidenceSlide(currentSlide + 1);
+            });
+        }
+    });
+
+    // ============================================
     // FAQ ACCORDION
     // ============================================
     
@@ -223,159 +257,5 @@ Submitted: ${new Date().toLocaleString('en-US', {
         }
         
         lastScroll = currentScroll;
-    });
-});
-    
-    // Form submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                name: this.name.value,
-                email: this.email.value,
-                phone: this.phone.value,
-                property: this.property.value,
-                message: this.message.value
-            };
-            
-            // Create email body
-            const emailBody = `
-New Inquiry — La Huerta San Sebastián
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CONTACT INFORMATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-INQUIRY DETAILS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Property of Interest: ${formData.property}
-
-Message:
-${formData.message || 'No additional message provided.'}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Submitted: ${new Date().toLocaleString('en-US', { 
-    timeZone: 'America/Mazatlan',
-    dateStyle: 'full',
-    timeStyle: 'short'
-})}
-            `.trim();
-            
-            // Create mailto link
-            const subject = encodeURIComponent(`La Huerta Inquiry — ${formData.property} — ${formData.name}`);
-            const body = encodeURIComponent(emailBody);
-            const mailtoLink = `mailto:tyson@ricardoamigo.com?subject=${subject}&body=${body}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show subtle confirmation
-            showConfirmation();
-            
-            // Reset form
-            setTimeout(() => {
-                contactForm.reset();
-            }, 1000);
-        });
-    }
-    
-    function showConfirmation() {
-        const confirmation = document.createElement('div');
-        confirmation.style.cssText = `
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #2A2521;
-            color: #FFFCF7;
-            padding: 2rem 3rem;
-            font-family: 'PP Fraktion Mono', monospace;
-            font-size: 0.875rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            z-index: 10000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        `;
-        confirmation.textContent = 'Opening email client...';
-        
-        document.body.appendChild(confirmation);
-        
-        setTimeout(() => {
-            confirmation.style.opacity = '1';
-        }, 10);
-        
-        setTimeout(() => {
-            confirmation.style.opacity = '0';
-            setTimeout(() => {
-                document.body.removeChild(confirmation);
-            }, 300);
-        }, 2500);
-    }
-    
-    // Fade in elements on scroll
-    const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const fadeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '0';
-                entry.target.style.transform = 'translateY(20px)';
-                
-                setTimeout(() => {
-                    entry.target.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, 100);
-                
-                fadeObserver.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    // Observe residence showcases
-    document.querySelectorAll('.residence-showcase').forEach(residence => {
-        fadeObserver.observe(residence);
-    });
-    
-    // Navigation background on scroll
-    const nav = document.querySelector('.nav-minimal');
-    let lastScroll = 0;
-    
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            nav.style.background = 'rgba(250, 248, 245, 0.98)';
-            nav.style.boxShadow = '0 1px 0 rgba(42, 37, 33, 0.08)';
-        } else {
-            nav.style.background = 'rgba(250, 248, 245, 0.95)';
-            nav.style.boxShadow = 'none';
-        }
-        
-        lastScroll = currentScroll;
-    });
-    
-    // Image loading (no fade animation)
-    const images = document.querySelectorAll('img[src]');
-    images.forEach(img => {
-        if (!img.complete) {
-            img.style.opacity = '0';
-            img.addEventListener('load', () => {
-                img.style.opacity = '1';
-                img.style.transition = 'opacity 0.3s ease';
-            });
-        }
     });
 });
