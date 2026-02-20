@@ -54,12 +54,12 @@
     --font-heading: 'Acme Gothic', sans-serif;
     --font-body: 'PP Fraktion Mono', monospace;
     
-    /* Spacing - More Generous */
+    /* Spacing - More Compact Vertically */
     --space-xs: 1rem;
-    --space-sm: 2rem;
-    --space-md: 4rem;
-    --space-lg: 6rem;
-    --space-xl: 10rem;
+    --space-sm: 1.5rem;
+    --space-md: 2.5rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
     
     /* Refined Details */
     --border-thin: 1px;
@@ -75,7 +75,7 @@ body {
     font-family: var(--font-body);
     background: var(--cream);
     color: var(--charcoal);
-    line-height: 1.7;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     font-weight: 400;
 }
@@ -129,17 +129,17 @@ h1, h2, h3, h4 {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(250, 248, 245, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(250, 248, 245, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: none;
     transition: var(--transition);
 }
 
 .header.scrolled {
-    background: rgba(250, 248, 245, 0.92);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(250, 248, 245, 0.85);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     border-bottom: var(--border-thin) solid rgba(42, 37, 33, 0.06);
 }
 
@@ -653,7 +653,7 @@ h1, h2, h3, h4 {
 }
 
 .residence-info {
-    padding: var(--space-md);
+    padding: var(--space-sm) var(--space-sm);
 }
 
 .residence-name {
@@ -733,13 +733,13 @@ h1, h2, h3, h4 {
 
 .feature {
     text-align: center;
-    padding: var(--space-md);
+    padding: var(--space-sm) var(--space-xs);
 }
 
 .feature-icon {
     width: 70px;
     height: 70px;
-    margin: 0 auto var(--space-sm);
+    margin: 0 auto 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -760,7 +760,7 @@ h1, h2, h3, h4 {
 
 .feature p {
     font-size: 0.9375rem;
-    line-height: 1.8;
+    line-height: 1.6;
     color: var(--charcoal);
     opacity: 0.7;
 }
@@ -787,7 +787,7 @@ h1, h2, h3, h4 {
 
 .why-card {
     background: var(--sand-light);
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-md) var(--space-sm);
     border-radius: 4px;
     border: var(--border-thin) solid rgba(42, 37, 33, 0.06);
 }
@@ -803,7 +803,7 @@ h1, h2, h3, h4 {
 
 .why-card p {
     font-size: 0.9375rem;
-    line-height: 1.9;
+    line-height: 1.7;
     color: var(--charcoal);
     opacity: 0.8;
 }
