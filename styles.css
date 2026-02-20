@@ -54,12 +54,12 @@
     --font-heading: 'Acme Gothic', sans-serif;
     --font-body: 'PP Fraktion Mono', monospace;
     
-    /* Spacing - More Compact */
+    /* Spacing - Balanced and Generous */
     --space-xs: 1rem;
     --space-sm: 1.5rem;
     --space-md: 2.5rem;
-    --space-lg: 4rem;
-    --space-xl: 6rem;
+    --space-lg: 6.25rem;     /* 100px - matching Strawberry Fields */
+    --space-xl: 8rem;         /* 128px - for hero/special sections */
     
     /* Other */
     --border-thin: 1px;
@@ -96,7 +96,7 @@ h1, h2, h3, h4 {
 }
 
 .section-title {
-    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
     margin-bottom: var(--space-md);
     font-weight: 400;
     letter-spacing: 0.1em;
@@ -430,7 +430,7 @@ h1, h2, h3, h4 {
 
 .story-title {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.75rem, 5.5vw, 4.5rem);
     font-weight: 400;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -441,11 +441,11 @@ h1, h2, h3, h4 {
 
 .story-intro {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(1.625rem, 3.25vw, 2.25rem);
     font-style: italic;
     font-weight: 300;
     color: var(--terracotta-light);
-    line-height: 1.4;
+    line-height: 1.45;
     max-width: 900px;
     margin: 0 auto var(--space-lg);
 }
@@ -459,8 +459,8 @@ h1, h2, h3, h4 {
 }
 
 .story-block p {
-    font-size: 1.0625rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.85;
     color: var(--charcoal);
     opacity: 0.8;
 }
