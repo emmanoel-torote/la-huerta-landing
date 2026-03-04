@@ -253,3 +253,47 @@ Submitted: ${new Date().toLocaleString('en-US', {
         }
     });
 });
+// Web3Forms Handler
+const form = document.getElementById('inquiryForm');
+const successMessage = document.getElementById('formSuccess');
+const errorMessage = document.getElementById('formError');
+
+form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(form);
+    const submitButton = form.querySelector('.form-submit');
+    const originalText = submitButton.textContent;
+    
+    // Disable button and show loading state
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+    
+    try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            // Hide form and show success message
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+            
+            // Reset form
+            form.reset();
+        } else {
+            throw new Error('Form submission failed');
+        }
+    } catch (error) {
+        // Show error message
+        errorMessage.style.display = 'block';
+        console.error('Form error:', error);
+    } finally {
+        // Re-enable button
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+    }
+});
