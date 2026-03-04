@@ -1266,6 +1266,25 @@ h1, h2, h3, h4 {
     line-height: 1.7;
 }
 
+.form-error {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.form-error h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: #ef4444;
+    margin-bottom: 12px;
+}
+
+.form-error p {
+    color: var(--sand);
+    font-size: 0.88rem;
+    line-height: 1.7;
+}
+
 /* ============================================
    FOOTER
    ============================================ */
