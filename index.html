@@ -341,7 +341,7 @@
                     <p class="agent-title">Exclusive Representative | Ricardo Amigo Real Estate</p>
                     
                     <p class="agent-bio">
-                        With years of experience in Baja California Sur's luxury real estate market, Tyson specializes in representing exceptional properties and discerning international clients throughout the region.
+                        With over a decade of experience in Baja California Sur's luxury real estate market, Tyson specializes in representing exceptional properties and discerning international clients throughout the region.
                     </p>
                     
                     <p class="agent-bio">
@@ -487,21 +487,30 @@
                         <p class="agent-name">Tyson Gargas</p>
                         <div class="agent-contact" style="margin-top:12px;">
                             <a href="tel:+526122342763" class="agent-link">+52 612 234-2763</a>
-                            <a href="mailto:tyson@ricardoamigo.com"class="agent-link">tyson@ricardoamigo.com</a>
+                            <a href="/cdn-cgi/l/email-protection#710508021e1f310318121003151e101c18161e5f121e1c" class="agent-link"><span class="__cf_email__" data-cfemail="7f0b060c10113f0d161c1e0d1b101e12161810511c1012">[email&#160;protected]</span></a>
                             <a href="https://wa.me/526122342763" target="_blank" class="agent-link">WhatsApp Tyson →</a>
                         </div>
                     </div>
                 </div>
                 <div class="form-wrap">
-                    <form id="inquiryForm">
+                    <form id="inquiryForm" action="https://api.web3forms.com/submit" method="POST">
+                        <!-- Web3Forms Access Key -->
+                        <input type="hidden" name="access_key" value="43910d3d-fe35-4290-9d6f-4fe78bf9f017">
+                        
+                        <!-- Redirect after submission (optional) -->
+                        <input type="hidden" name="redirect" value="false">
+                        
+                        <!-- Email subject -->
+                        <input type="hidden" name="subject" value="New Inquiry from La Huerta Landing Page">
+                        
                         <div class="form-row">
                             <div class="form-group">
                                 <label class="form-label" for="fname">First Name</label>
-                                <input class="form-input" type="text" id="fname" name="fname" required placeholder="Jane" />
+                                <input class="form-input" type="text" id="fname" name="first_name" required placeholder="Jane" />
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="lname">Last Name</label>
-                                <input class="form-input" type="text" id="lname" name="lname" required placeholder="Smith" />
+                                <input class="form-input" type="text" id="lname" name="last_name" required placeholder="Smith" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -515,7 +524,7 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label class="form-label" for="propertyInterest">Property of Interest</label>
-                                <select class="form-select" id="propertyInterest" name="propertyInterest">
+                                <select class="form-select" id="propertyInterest" name="property_interest">
                                     <option value="">Any / Not sure</option>
                                     <option value="Casa Nube">Casa Nube</option>
                                     <option value="Casa Entre Patios">Casa Entre Patios</option>
@@ -541,9 +550,13 @@
                         <button type="submit" class="form-submit">Send Inquiry</button>
                         <p class="form-disclaimer">Your information is shared only with Tyson Gargas at RARE. We respect your privacy and will never sell your contact information.</p>
                     </form>
-                    <div class="form-success" id="formSuccess">
-                        <h3>Thank you.</h3>
+                    <div class="form-success" id="formSuccess" style="display:none;">
+                        <h3>Thank you!</h3>
                         <p>Tyson will be in touch within 24 hours. In the meantime, feel free to reach him directly at <a href="tel:+526122342763" style="color:var(--terracotta);">+52 612 234-2763</a> or via WhatsApp.</p>
+                    </div>
+                    <div class="form-error" id="formError" style="display:none;">
+                        <h3>Oops!</h3>
+                        <p>Something went wrong. Please try again or contact Tyson directly at <a href="tel:+526122342763" style="color:var(--terracotta);">+52 612 234-2763</a>.</p>
                     </div>
                 </div>
             </div>
